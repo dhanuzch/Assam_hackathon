@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Team-Parko</title>
+  </head>
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgUSIkqnwfqB-fJ9aLnVFGtXMpC4oYmwU&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <script src="dist/gauge.min.js"></script>
+<!-- Navbar -->
+    <nav class="navbar navbar-light bg-white">
+      <a class="navbar-brand" href="https://www.instagram.com/dhanuzch/" target="_blank">
+        <img src="http://192.168.0.104/assamhack/img/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
+          <span class="navbar-text text-danger .display-3">
+            For Assam Police by Team-Parko
+          </span>
+        </a>   
+    </nav>
+<!-- Content -->
+<div class="container bg-white">
+  <div class=" row">
+    <div class="container col-xs-12 col-sm-4 bg-dark  text-dark">
+        <!-- Map 1 -->
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h3 class=" .display-3 text-center">Pre-planned Route</h3>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d31328.432856005424!2d76.91562178741299!3d11.03456746978409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x3ba858a56fcdbca1%3A0xd8270ebadf47b443!2sDhiya%20Sowkiyam%20Apartment%2C%20P%20O%2C%20TVS%20Nagar%20-%20Koundampalayam%20Rd%2C%20Opp%2C%20Saravana%20Nagar%2C%20Edayarpalayam%2C%20Coimbatore%2C%20Tamil%20Nadu%20641025%2C%20India!3m2!1d11.0474783!2d76.9306127!4m5!1s0x3ba858e7a612ad75%3A0xb4e8bb770259324a!2sLisieux%20Matriculation%20HSS%2C%20Bharathi%20Park%20Road%2C%20Saibaba%20Colony%2C%20Tamil%20Nadu!3m2!1d11.0211433!2d76.9424684!5e0!3m2!1sen!2sin!4v1599066963479!5m2!1sen!2sin"        
+          height="450" width="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+      </div>
+    </div>
+          
+    <div class="container col-xs-12 col-sm-4 bg-danger text-dark">
+      <!-- Map 2 -->
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h3 class=" .display-3 text-center">Live-Tracking</h3>
+          <div id="map" height="420" width="100%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container col-xs-12 col-sm-4 bg-dark  text-white">
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <!-- Speedometer--> 
+          <h3 class=" .display-3 text-dark text-center">Speed</h3>          
+          <div id="gauge" class="gauge-container"></div>
+        </div>
+      </div>
+
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <div class="row3 text-dark">
+            <h3 class=" text-dark .display-3 text-center">Temperature</h3>
+            <div class="container">
+            <div class="temperature text-white">60%</div>
+            </div> 
+          </div>
+        </div>
+      </div>
+
+      <div class="row4 text-light">
+          <!-- Altitude Graph-->
+          Altitude Graph
+      </div>
+    </div>       
+  </div>
+</div>              
+
+
+<div class="container bg-white">
+  <div class=" row">
+    <!-- Number of km travelled-->
+    <div class="container bg-dark col-xs-12 col-sm-4">
+      <div class="card bg-white text-dark">
+        <h5 class="text-center">   Number of km travelled: </h5>
+        <div class="col text-center"><button class="buttonreset">Reset</button></div>
+      </div>
+    </div>
+
+    <div class="container bg-danger col-xs-12 col-sm-4">
+      <div class="card bg-white text-dark">
+          <!-- Time taken from start of the trip-->
+          <h5 class="text-center">   Time taken from start of the trip: </h5>
+          <div class="col text-center"><button class="buttonreset">Reset</button></div>
+      </div> 
+    </div>
+
+    <div class="container bg-dark col-xs-12 col-sm-4">
+          <!-- Orientation -->
+          <div class="row">
+            <div class="col col-xs-6 col-sm-6">
+              <div class="card bg-white text-dark">
+                <h5 class="text-center ">  Orientation: </h5>
+                <h5 class="text-center ">  NE </h5>
+              </div>
+            </div>
+
+              <div class="col col-xs-6 col-sm-6">
+                <div class="card bg-white text-dark">
+                  <div class="row2 text-dark">
+                    <!-- Speed Alert-->
+                    <div class="col">
+                      <h1 class="text-center ">  </h1>
+                      <button type="submit" class="button text-center">Overspeeding</button>
+                      <h1 class="text-center ">  </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div> 
+    </div>
+  </div>
+</div>
+
+
+
+
+</body>
+</html>
+
+<!--=========================
+            Styles
+===========================-->
+
+<style>
+body {
+/* Hide Scroll Bar */
+  overflow-x: hidden;
+}
+</style>
+<style type="text/css">
+/* Background */
+    body { background:white !important; } 
+</style>
+
+<style>
+/* Reset Button */
+  .buttonreset {
+  background-color:red;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 22x;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+<style>
+  .button {
+  /* Overspeeding Alert */
+  background-color: #B20000;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-animation: glowing 1500ms infinite; /* Use this while scripting*/
+
+
+}
+@-webkit-keyframes glowing {
+  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+@keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  }
+}
+  </style>
+<style>
+/* Map 2 */   
+    #map {
+    height: 450px;
+</style>
+
+<style> 
+/*Speedometer */
+.gauge-container > .gauge > .dial {
+  stroke: #334455;
+  stroke-width: 4;
+}
+
+.gauge-container > .gauge > .value {
+  
+  stroke-width: 8;
+  color:grey;
+  stroke: rgba(255, 0, 43, 0.959);
+}
+
+.gauge-container > .gauge > .value-text {
+  fill: rgb(47, 227, 255);
+  font-family: sans, 'sans-serif';
+  font-weight: bold;
+  font-size: 0.6em;
+}
+</style>
+
+<style>
+  /* Temperature */
+  * {
+      box-sizing: border-box;
+   }
+
+
+   .container {
+      width: 100%;
+      background-color: #334455;
+      border-radius: 20px;
+   }
+
+   .temperature {
+      width: 60%;
+      text-align: center;
+      font-weight: bolder;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      color: grey;
+      border-radius: 20px;
+      background-color:rgba(255, 0, 43, 0.959);
+   }
+</style>
+
+<style>
+  /* Container */
+  .vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-48%);
+}
+</style>
+
+<!--=========================
+            Scripts
+===========================-->
+<script> 
+ /* Speedometer */
+var myGauge = Gauge(
+    document.getElementById("gauge"),
+    {
+      min: 0,
+      max: 100,
+      dialStartAngle: 180,
+      dialEndAngle: 0,
+      value: 40,
+      viewBox: "0 0 100 57",
+      gaugeColor: "Blue",
+    }
+  );
+</script> 
+
+<script>
+/* Map 2 */
+  function initMap() {
+      const myLatLng = {
+      lat: 11.047909,
+      lng: 76.930652 
+      };
+      const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: myLatLng
+      });
+      new google.maps.Marker({
+      position: myLatLng,
+      map,
+      title: "Hello World!"
+      });
+  }
+</script> 

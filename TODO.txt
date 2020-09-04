@@ -1,0 +1,29 @@
+Inputs
+======
+1. GPS Coordinates(GPS Module)
+3. Orientation from IMU(MPU6050)
+4. Altitude(BMP280)
+5. Temperature(BMP280)
+
+Outputs
+=======
+To Display: 
+-----------
+1. Speed
+2. Orientation
+3. Temperature
+4. No of available satellites
+
+Results in Remote Monitoring System(Output via GPRS-HTTP Protocol)
+------------------------------------------------------------------
+1. Speed from GPS Data
+2. Temperature
+3. Orientation
+4. Altitude
+5. Over Speeding Alert
+6. Route taken with GPS Data
+7. Route Comparison(Alert when route other than specified is taken or just display map in side)
+
+Misc.
+=====
+1. Add button to turn on and off the device
