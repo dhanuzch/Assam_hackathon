@@ -11,6 +11,14 @@
  * TO-DO
  ******* 
  * Fix bugs in the GSM PART
+ * 
+ * CONNECTIONS
+ * ***********
+ * Module->NodeMCU
+ * GSM RX,TX->D10, D9
+ * GPS RX,TX->D8, D7
+ * MPU6050 SCL,SDA->D1, D2
+ * LCD SCL,SDA-> D1, D2(Optional)
 */
 
 
@@ -37,15 +45,14 @@ LiquidCrystal_I2C lcd(0x27,16,2);  //default address x27
 MPU6050 mpu;                       //default address x68
 TinyGPSPlus gps;
 
-static const int RXPin = 4, TXPin = 3;
+static const int RXPin = D7, TXPin = D8;
 static const uint32_t GPSBaud = 4800;
+SoftwareSerial ss(RXPin, TXPin);
 
-SoftwareSerial myserial(10, 11);
+SoftwareSerial myserial(D9, D10);
 
 int SCL_PIN=D1;
 int SDA_PIN=D2;
-SoftwareSerial ss(RXPin, TXPin);
-
 
 float temp = mpu.readTemperature();
 unsigned long timer = 0;
@@ -87,7 +94,7 @@ Serial.print(WiFi.localIP());
 delay(1000);
 Serial.println("connecting...");
 }
-}
+
 
 
 void loop() {

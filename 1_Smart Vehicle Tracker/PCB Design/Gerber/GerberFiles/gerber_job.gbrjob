@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2020-09-24T09:45:23Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.6.2"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.57,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "Schematics"
+        },
+        "Owner": "Dhanush B <dhanush.mc18@bitsathy.ac.in>",
+        "Size": {
+            "X": 119.36,
+            "Y": 45.39
+        }
+    }
+}

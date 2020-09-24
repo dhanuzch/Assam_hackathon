@@ -19,6 +19,7 @@ $time = '';
 $altitude = '';
 $temperature = '';
 $direction = '';
+$km = '';
 
 
 // fetch  
@@ -28,7 +29,7 @@ LIMIT 0,20";
 $sql2 = "SELECT lat,longitude  FROM 1_smart_vehicle_tracker
 ORDER BY id DESC 
 LIMIT 0,20";
-$sql3 = "SELECT speed, temperature, direction  FROM 1_smart_vehicle_tracker
+$sql3 = "SELECT speed, temperature, direction, km  FROM 1_smart_vehicle_tracker
 LIMIT 0,1";
 
 $result = mysqli_query($conn, $sql1);
@@ -47,6 +48,7 @@ while ($row = mysqli_fetch_array($result3)) {
 	$temperature = $row['temperature'];
 	$speed = $row['speed'];
   $direction = $row['direction'];
+  $km = $row['km'];
 }
 
 $temperature = trim($temperature,",");
@@ -56,6 +58,7 @@ $speed = trim($speed,",");
 $longitude = trim($longitude,","); 
 $direction = trim($direction,",");
 $altitude = trim($altitude,",");
+$km = trim($km,",");
 
 
 ?> 
@@ -71,7 +74,7 @@ $altitude = trim($altitude,",");
 
     <title>Team-Parko</title>
   </head>
-  <body>
+<body>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -82,73 +85,80 @@ $altitude = trim($altitude,",");
     <!-- Insert your API key -->
     <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBxNa7ZbMb4hYRdf6Npi-RUaZyPMpLqmA&callback=initMap&libraries=places&v=weekly"
-      defer
+    defer
     ></script>
     <script src="dist/gauge.min.js"></script>
-<!-- Navbar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-light bg-white">
       <a class="navbar-brand" href="https://www.instagram.com/dhanuzch/" target="_blank">
-        <img src="http://192.168.0.105/assamhack/img/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
+        <img src="/assamhack/img/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
           <span class="navbar-text text-danger .display-3">
             For Assam Police by Team-Parko
           </span>
-        </a>   
+        </a> 
+        <form >
+          <input type="text1" name="search" placeholder="   Enter device ID">
+        </form>  
     </nav>
+
 <!-- Content -->
 <div class="container bg-white">
   <div class=" row">
     <div class="container col-xs-12 col-sm-4 bg-dark  text-dark">
         <!-- Map 1 -->
-      <div class="card" style="width: 100%; height: 100%;">
-        <div class="card-body">
-          <h3 class=" .display-3 text-center">Pre-planned Route</h3>
-      <div style="display: none">
-      <input
-        id="origin-input"
-        class="controls"
-        type="text"
-        placeholder="Enter an origin location"
-      />
-
-      <input
-        id="destination-input"
-        class="controls"
-        type="text"
-        placeholder="Enter a destination location"
-      />
-
-      <div id="mode-selector" class="controls">
-        <input
-          type="radio"
-          name="type"
-          id="changemode-walking"
-          checked="checked"
-        />
-        <label for="changemode-walking">Walking</label>
-
-        <input type="radio" name="type" id="changemode-transit" />
-        <label for="changemode-transit">Transit</label>
-
-        <input type="radio" name="type" id="changemode-driving" />
-        <label for="changemode-driving">Driving</label>
-      </div>
-    </div>
-
-    <div id="map"></div>
+        <div class="card" style="width: 100%; height: 100%">
+          <div class="card-body"  >
+            <h3 class=" .display-3 text-center">Pre-planned Route</h3>
+            <div style="display: none"class="container col-xs-12 col-sm-4">
+              <div> 
+                <input
+                  id="origin-input"
+                  class="controls"
+                  type="text"
+                  placeholder="Origin"
+                />
+                
+                <input
+                  id="destination-input"
+                  class="controls"
+                  type="text"
+                  placeholder="Destination"
+                />
+              </div>
+              <div class="controls2">
+                <div id="mode-selector" class="controls">
+                  <input
+                    type="radio"
+                    name="type"
+                    id="changemode-driving"
+                    checked="checked"
+                  />
+                  <label for="changemode-driving">Driving</label>
+                  <br>
+                  <input type="radio" name="type" id="changemode-transit" />
+                  <label for="changemode-transit">Transit</label>
+                  <br>
+                  <input type="radio" name="type" id="changemode-walking" />
+                  <label for="changemode-walking">Walking</label>
+                </div>
+              </div>
+            </div>
+            <div id="map1"></div>
+          </div>
         </div>
       </div>
-    </div>
-          
+        
     <div class="container col-xs-12 col-sm-4 bg-danger">
       <!-- Map 2 -->
-      <div class="card">
+      <div class="card" style="width: 100%; height: 100%">
         <div class="card-body">
-        <img src="http://192.168.0.105/assamhack/img/textlogo.png" class="img-rounded center" style="width:100%;height:150px;" alt="Text Logo">
+        <div>
+          <img src="/assamhack/img/textlogo.png" class="img-rounded center" style="width:100%;height:150px;" alt="Text Logo">
+        </div>
           <h3 class=" .display-3 text-center  text-dark">Live-Tracking</h3>
           <div id="map"></div>
         </div>
       </div>
-      
     </div>
 
     <div class="container col-xs-12 col-sm-4 bg-dark  text-white">
@@ -185,7 +195,8 @@ $altitude = trim($altitude,",");
       </div>
     </div>       
   </div>
-</div>              
+</div>     
+</div>         
 
 
 <div class="container bg-white">
@@ -193,16 +204,23 @@ $altitude = trim($altitude,",");
     <!-- Number of km travelled-->
     <div class="container bg-dark col-xs-12 col-sm-4">
       <div class="card bg-white text-dark">
-        <h5 class="text-center">   Number of km travelled: </h5>
+        <h5 class="text-center">   Distance travelled: <?php echo $km; ?> km </h5>
         <div class="col text-center"><button class="buttonreset">Reset</button></div>
       </div>
     </div>
 
     <div class="container bg-danger col-xs-12 col-sm-4">
       <div class="card bg-white text-dark">
-          <!-- Time taken from start of the trip-->
-          <h5 class="text-center">   Time taken from start of the trip: </h5>
-          <div class="col text-center"><button class="buttonreset">Reset</button></div>
+        <!-- Time taken from start of the trip-->
+        <h5 class="text-center">   Time taken from start of the trip: 		<div class="stopwatch"></div>
+        <ul class="results"></ul></h5>
+        <nav class="controls">
+        <div class="col text-center">
+        <button class="buttonreset" onClick="stopwatch.start()";>Start</button>
+        <button class="buttonreset" onClick="stopwatch.restart()";>Reset</button>
+        <button class="buttonreset" onClick="stopwatch.stop()";>Stop</button>
+        </div>
+		    </nav>
       </div> 
     </div>
 
@@ -311,8 +329,15 @@ body {
 
 <style>
 /* Map 2 */   
-    #map {
-    height: 450px;
+#map {
+height: 100%;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 </style>
 
 
@@ -394,6 +419,21 @@ body {
 }
 </style>
 <style>
+/* Navbar ID search */
+  input[type=text1] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('/assamhack/img/target.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+</style>
+<style>
 /* chart-Altitude */
   * {
   box-sizing: border-box;
@@ -416,19 +456,11 @@ body {
 </style> 
 <style>
 /* Map 1 */
-/* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-  height: 100%;
+
+#map1 {
+height: 90%;
 }
 
-/* Optional: Makes the sample page fill the window. */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 
 .controls {
   margin-top: 10px;
@@ -441,8 +473,19 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-#origin-input,
-#destination-input {
+.controls2 {
+  margin-top: 50px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+
+}
+
+#origin-input {
   background-color: #fff;
   font-family: Roboto;
   font-size: 15px;
@@ -450,7 +493,19 @@ body {
   margin-left: 12px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 200px;
+  width: 125px;
+}
+#destination-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 10px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 125px;
+
+
 }
 
 #origin-input:focus,
@@ -460,15 +515,21 @@ body {
 
 #mode-selector {
   color: #fff;
-  background-color: #4d90fe;
-  margin-left: 12px;
-  padding: 5px 11px 0px 11px;
+  background-color: #d9534f;
+  margin-left: 10px;
+  padding: 15px 0 0 0;
+  width: auto;
+  height: 100px;
+
 }
 
 #mode-selector label {
   font-family: Roboto;
   font-size: 13px;
   font-weight: 300;
+
+
+
 }
 </style>
 
@@ -493,46 +554,49 @@ var myGauge = Gauge(
 
 <script>
 /* Map 2 */
-  function initMap() {
-      const myLatLng = {
-      lat: <?php echo $lat; ?>,
-      lng: <?php echo $longitude; ?> 
-      };
-      const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 4,
-      center: myLatLng
-      });
-      new google.maps.Marker({
-      position: myLatLng,
-      map,
-      title: "Hello World!"
-      });
-  }
-</script> 
-<script>
-/* Map 1 */
-// This example requires the Places library. Include the libraries=places
-// parameter when you first load the API. For example:
-// <script
-// src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+"use strict";
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: {
+      lat: -33,
+      lng: 151,
+    },
+  });
+  const image =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+  const beachMarker = new google.maps.Marker({
+    position: {
+      lat: -33.89,
+      lng: 151.274,
+    },
+    map,
+    icon: image,
+  });
+}
+</script> 
+
+<script>
+/* Map 1 */
+
+function initMap() {
+  const map1 = new google.maps.Map(document.getElementById("map1"), {
     mapTypeControl: false,
     center: { lat: -33.8688, lng: 151.2195 },
     zoom: 13
   });
-  new AutocompleteDirectionsHandler(map);
+  new AutocompleteDirectionsHandler(map1);
 }
 
 class AutocompleteDirectionsHandler {
-  constructor(map) {
-    this.map = map;
+  constructor(map1) {
+    this.map1 = map1;
     this.originPlaceId = "";
     this.destinationPlaceId = "";
     this.travelMode = google.maps.TravelMode.WALKING;
     this.directionsService = new google.maps.DirectionsService();
     this.directionsRenderer = new google.maps.DirectionsRenderer();
-    this.directionsRenderer.setMap(map);
+    this.directionsRenderer.setMap(map1);
     const originInput = document.getElementById("origin-input");
     const destinationInput = document.getElementById("destination-input");
     const modeSelector = document.getElementById("mode-selector");
@@ -558,11 +622,11 @@ class AutocompleteDirectionsHandler {
     );
     this.setupPlaceChangedListener(originAutocomplete, "ORIG");
     this.setupPlaceChangedListener(destinationAutocomplete, "DEST");
-    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
+    this.map1.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+    this.map1.controls[google.maps.ControlPosition.TOP_LEFT].push(
       destinationInput
     );
-    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+    this.map1.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
   }
   // Sets a listener on a radio button to change the filter type on Places
   // Autocomplete.
@@ -574,7 +638,7 @@ class AutocompleteDirectionsHandler {
     });
   }
   setupPlaceChangedListener(autocomplete, mode) {
-    autocomplete.bindTo("bounds", this.map);
+    autocomplete.bindTo("bounds", this.map1);
     autocomplete.addListener("place_changed", () => {
       const place = autocomplete.getPlace();
 
@@ -613,6 +677,106 @@ class AutocompleteDirectionsHandler {
   }
 }
 </script>
+<script>
+class Stopwatch {
+    constructor(display, results) {
+        this.running = false;
+        this.display = display;
+        this.results = results;
+        this.laps = [];
+        this.reset();
+        this.print(this.times);
+    }
+    
+    reset() {
+        this.times = [ 0, 0, 0 ];
+    }
+    
+    start() {
+        if (!this.time) this.time = performance.now();
+        if (!this.running) {
+            this.running = true;
+            requestAnimationFrame(this.step.bind(this));
+        }
+    }
+    
+    lap() {
+        let times = this.times;
+        let li = document.createElement('li');
+        li.innerText = this.format(times);
+        this.results.appendChild(li);
+    }
+    
+    stop() {
+        this.running = false;
+        this.time = null;
+    }
+
+    restart() {
+        if (!this.time) this.time = performance.now();
+        if (!this.running) {
+            this.running = true;
+            requestAnimationFrame(this.step.bind(this));
+        }
+        this.reset();
+    }
+    
+    clear() {
+        clearChildren(this.results);
+    }
+    
+    step(timestamp) {
+        if (!this.running) return;
+        this.calculate(timestamp);
+        this.time = timestamp;
+        this.print();
+        requestAnimationFrame(this.step.bind(this));
+    }
+    
+    calculate(timestamp) {
+        var diff = timestamp - this.time;
+        // Hundredths of a second are 100 ms
+        this.times[2] += diff / 10;
+        // Seconds are 100 hundredths of a second
+        if (this.times[2] >= 100) {
+            this.times[1] += 1;
+            this.times[2] -= 100;
+        }
+        // Minutes are 60 seconds
+        if (this.times[1] >= 60) {
+            this.times[0] += 1;
+            this.times[1] -= 60;
+        }
+    }
+    
+    print() {
+        this.display.innerText = this.format(this.times);
+    }
+    
+    format(times) {
+        return `\
+${pad0(times[0], 2)}:\
+${pad0(times[1], 2)}:\
+${pad0(Math.floor(times[2]), 2)}`;
+    }
+}
+
+function pad0(value, count) {
+    var result = value.toString();
+    for (; result.length < count; --count)
+        result = '0' + result;
+    return result;
+}
+
+function clearChildren(node) {
+    while (node.lastChild)
+        node.removeChild(node.lastChild);
+}
+
+let stopwatch = new Stopwatch(
+    document.querySelector('.stopwatch'),
+    document.querySelector('.results'));
+</script>
 
 <script>
   /* Altitude */
@@ -624,7 +788,7 @@ class AutocompleteDirectionsHandler {
       labels: [<?php echo $time; ?>],
       datasets: 
       [{
-        label: 'Altitude',
+        label: 'Altitude(in meter)',
         data: [<?php echo $altitude; ?>],
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor:'rgba(255, 99, 132, 1)',
@@ -648,3 +812,5 @@ class AutocompleteDirectionsHandler {
   });
 </script>
 </html>
+
+
