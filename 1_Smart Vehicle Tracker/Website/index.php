@@ -1,3 +1,5 @@
+
+
 <?php  
 $servername = "127.0.0.1"; 
 $username = "root"; 
@@ -150,8 +152,9 @@ $km = trim($km,",");
         
     <div class="container col-xs-12 col-sm-4 bg-danger">
       <!-- Map 2 -->
-      <div class="card" style="width: 100%; height: 100%">
+      
         <div class="card-body">
+        <div class="card" style="width: 100%; height: 70%">
         <div>
           <img src="/assamhack/img/textlogo.png" class="img-rounded center" style="width:100%;height:150px;" alt="Text Logo">
         </div>
@@ -550,12 +553,17 @@ var myGauge = Gauge(
       gaugeColor: "Blue",
     }
   );
-</script> 
+</script>
 
 <script>
-/* Map 2 */
-"use strict";
+/* Map 1 */
+
 function initMap() {
+  const map1 = new google.maps.Map(document.getElementById("map1"), {
+    mapTypeControl: false,
+    center: { lat: -33.8688, lng: 151.2195 },
+    zoom: 13
+  });
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 4,
     center: {
@@ -573,18 +581,7 @@ function initMap() {
     map,
     icon: image,
   });
-}
-</script> 
-
-<script>
-/* Map 1 */
-
-function initMap() {
-  const map1 = new google.maps.Map(document.getElementById("map1"), {
-    mapTypeControl: false,
-    center: { lat: -33.8688, lng: 151.2195 },
-    zoom: 13
-  });
+  console.log("Map2");
   new AutocompleteDirectionsHandler(map1);
 }
 
@@ -812,5 +809,4 @@ let stopwatch = new Stopwatch(
   });
 </script>
 </html>
-
 
