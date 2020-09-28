@@ -152,9 +152,8 @@ $km = trim($km,",");
         
     <div class="container col-xs-12 col-sm-4 bg-danger">
       <!-- Map 2 -->
-      
+      <div class="card" style="width: 100%; height: 100%">
         <div class="card-body">
-        <div class="card" style="width: 100%; height: 70%">
         <div>
           <img src="/assamhack/img/textlogo.png" class="img-rounded center" style="width:100%;height:150px;" alt="Text Logo">
         </div>
@@ -241,7 +240,7 @@ $km = trim($km,",");
                 <div class="card bg-white text-dark">
                   <div class="row2 text-dark">
                     <!-- Speed Alert-->
-                    <div class="col">
+                    <div id="button" class="col">
                       <h1 class="text-center ">  </h1>
                       <button class="button">Overspeeding</button>
                       <h1 class="text-center ">  </h1>
@@ -289,6 +288,16 @@ body {
   font-size: 18px;
 }
 </style>
+<script>
+  if (<?php echo $speed; ?> > 40) {   /* Now speed limit is set to 40 */
+    document.getElementById('button').style.webkit-animation = "glowing";
+  alert("Overspeeding");
+  }
+  if (<?php echo $speed; ?> <= 40) {
+      -webkit-animation: notglowing 1500ms infinite;
+  }
+</script>
+
 <style>
   .button {
   /* Overspeeding Alert */
@@ -300,10 +309,9 @@ body {
   cursor: not-allowed;
   font-family: Arial;
   font-size: 20px;
-  -webkit-animation: glowing 1500ms infinite; /* Use this while scripting*/
-
-
+  -webkit-animation: notglowing 1500ms infinite;
 }
+
 @-webkit-keyframes glowing {
   0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
   50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
@@ -322,10 +330,23 @@ body {
   100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
 }
 
-@keyframes glowing {
+@keyframes notglowing {
   0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
   50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
   100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  }
+
+@-webkit-keyframes notglowing {
+  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+}
+@-moz-keyframes notglowing {
+  0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+}
+@-o-keyframes notglowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+@keyframes notglowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
   }
 }
 </style>
@@ -333,7 +354,7 @@ body {
 <style>
 /* Map 2 */   
 #map {
-height: 100%;
+height: 70%;
 }
 html,
 body {
@@ -530,9 +551,6 @@ height: 90%;
   font-family: Roboto;
   font-size: 13px;
   font-weight: 300;
-
-
-
 }
 </style>
 
@@ -556,32 +574,32 @@ var myGauge = Gauge(
 </script>
 
 <script>
-/* Map 1 */
-
+/* Map 1 = map1*/
+/* Map 2 = map*/
 function initMap() {
   const map1 = new google.maps.Map(document.getElementById("map1"), {
     mapTypeControl: false,
-    center: { lat: -33.8688, lng: 151.2195 },
-    zoom: 13
+    center: { lat: <?php echo $lat; ?>, lng: <?php echo $longitude; ?> },
+    zoom: 12.5
   });
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
+    zoom: 12,
     center: {
-      lat: -33,
-      lng: 151,
+      lat: <?php echo $lat; ?>,
+      lng: <?php echo $longitude; ?>,
     },
   });
   const image =
-    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+    "/assamhack/img/mapmarker.png";
   const beachMarker = new google.maps.Marker({
     position: {
-      lat: -33.89,
-      lng: 151.274,
+      lat: <?php echo $lat; ?>,
+      lng: <?php echo $longitude; ?>,
     },
     map,
     icon: image,
   });
-  console.log("Map2");
+  
   new AutocompleteDirectionsHandler(map1);
 }
 
