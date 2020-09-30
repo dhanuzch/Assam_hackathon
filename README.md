@@ -1,7 +1,7 @@
 # Assam_hack_competition
 
 ## Project Explanation Video
-[![Project Explanation Video](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+[![Project Explanation Video](http://img.youtube.com/vi/9En175bcu2Y/0.jpg)](http://www.youtube.com/watch?v=9En175bcu2Y)
 
 ## Project Working Video
 [![roject Working Video](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
