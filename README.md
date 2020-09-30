@@ -3,8 +3,9 @@
 ## Project Explanation Video
 [Click here](http://www.youtube.com/watch?v=9En175bcu2Y).
 
-## Project Working Video
-[![roject Working Video](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+## Project Working gif
+### 1_smart_vehicle_tracker
+![gif](Project_Images/1_website.gif)
 
 ## Project instructions and explanation document
 [Click here](https://www.google.com).
