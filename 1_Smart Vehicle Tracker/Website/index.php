@@ -86,7 +86,7 @@ $km = trim($km,",");
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <!-- Insert your API key -->
     <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBxNa7ZbMb4hYRdf6Npi-RUaZyPMpLqmA&callback=initMap&libraries=places&v=weekly"
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap&libraries=places&v=weekly"
     defer
     ></script>
     <script src="dist/gauge.min.js"></script>

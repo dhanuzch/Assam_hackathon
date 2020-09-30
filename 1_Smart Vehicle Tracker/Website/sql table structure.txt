@@ -1,0 +1,11 @@
+CREATE TABLE `1_smart_vehicle_tracker` (
+  `id` bigint(20) NOT NULL,
+  `lat` float DEFAULT NULL,
+  `longitude` float DEFAULT NULL,
+  `speed` float DEFAULT NULL,
+  `time` time NOT NULL DEFAULT current_timestamp(),
+  `altitude` int(11) DEFAULT NULL,
+  `temperature` float DEFAULT NULL,
+  `direction` tinytext DEFAULT NULL,
+  `km` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

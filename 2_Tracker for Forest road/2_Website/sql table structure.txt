@@ -1,0 +1,82 @@
+--
+-- Table structure for table `2_entryexit_stolen`
+--
+
+CREATE TABLE `2_entryexit_stolen` (
+  `id` bigint(20) NOT NULL,
+  `registration_no` text DEFAULT NULL,
+  `brand` text DEFAULT NULL,
+  `model` text DEFAULT NULL,
+  `Colour` text DEFAULT NULL,
+  `year` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `2_entryexit_with_details`
+--
+
+CREATE TABLE `2_entryexit_with_details` (
+  `id` bigint(20) NOT NULL,
+  `registration_no` text DEFAULT NULL,
+  `brand` text DEFAULT NULL,
+  `model` text DEFAULT NULL,
+  `Colour` text DEFAULT NULL,
+  `year` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- --------------------------------------------------------
+--
+-- Table structure for table `2_entry_exit_control`
+--
+
+CREATE TABLE `2_entry_exit_control` (
+  `id` bigint(20) DEFAULT NULL,
+  `entry_count` text DEFAULT NULL,
+  `current_count` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `2_exit_control`
+--
+
+CREATE TABLE `2_exit_control` (
+  `id` bigint(20) NOT NULL,
+  `registration_no` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `prohibited_and_stolen_vehicles`
+--
+
+CREATE TABLE `prohibited_and_stolen_vehicles` (
+  `id` bigint(20) NOT NULL,
+  `registration_no` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- --------------------------------------------------------
+--
+-- Table structure for table `vehicle_db`
+--
+
+CREATE TABLE `vehicle_db` (
+  `id` bigint(20) NOT NULL,
+  `registration_no` text DEFAULT NULL,
+  `brand` text DEFAULT NULL,
+  `model` text DEFAULT NULL,
+  `year` int(11) DEFAULT NULL,
+  `Colour` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+-- Dumping data for table `vehicle_db`
+--
+
+INSERT INTO `vehicle_db` (`id`, `registration_no`, `brand`, `model`, `year`, `Colour`) VALUES
+(1, 'MH01AV8866', 'Volkswagen', 'Polo', 2016, 'Red'),
+(2, 'KA05AF4965', 'Suzuki', 'Dzire', 2014, 'White'),
+(3, 'KA05AG3766', 'Toyota', 'Liva', 2015, 'Silver'),
+(4, 'TN01AS9299', 'Mahindra', 'Xylo', 2015, 'Silver'),
+(5, 'MH12DE1433', 'Ford', 'Fiesta', 2011, 'Silver'),
+(6, 'MH13BN8454', 'Audi', 'A4', 2014, 'White'),
+(7, 'MH20DV2366', 'Skoda', 'Superb', 2019, 'Silver'),
+(8, 'TS08FT9099', 'Mercedes Benz', 'GLA', 2019, 'Red');
