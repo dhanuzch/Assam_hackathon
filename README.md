@@ -1,4 +1,4 @@
-# Assam_hack_competition
+# Innovate for Assam
 
 ## Project Explanation Video
 [Click here](http://www.youtube.com/watch?v=9En175bcu2Y).
