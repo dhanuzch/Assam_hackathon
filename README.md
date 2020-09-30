@@ -1,16 +1,18 @@
 # Assam_hack_competition
 
 ## Project Explanation Video
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+[Click here](http://www.youtube.com/watch?v=9En175bcu2Y).
 
-## Project Working Video
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+## Project Working
+### 1_smart_vehicle_tracker
+[Click here](Project_Images/1_website.gif)
 
 ## Project instructions and explanation document
-gfrive link here
+[Click here](https://www.google.com).
 
 ## Folder Structure
-![Alt text](Project_Images/folderstruct1.png?raw=true "Folder structure 1")
-![Alt text](Project_Images/folderstruct2.png?raw=true "Folder structure 2")
+![Folder structure 2](Project_Images/folderstruct2.png?raw=true "Folder structure 2")
+![Folder structure 1](Project_Images/folderstruct1.png?raw=true "Folder structure 1")
+
 
 
