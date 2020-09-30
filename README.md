@@ -3,7 +3,7 @@
 ## Project Explanation Video
 [Click here](http://www.youtube.com/watch?v=9En175bcu2Y).
 
-## Project Working gif
+## Project Working
 ### 1_smart_vehicle_tracker
 ![gif](Project_Images/1_website.gif)
 
