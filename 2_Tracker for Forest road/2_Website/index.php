@@ -17,7 +17,7 @@ $stolenquery = "SELECT * FROM 2_entryexit_stolen
 ORDER BY id DESC 
 LIMIT 0,10"; 
 
-$countquery = "SELECT COUNT(*) FROM 2_entry_exit_control"; 
+$countquery = "SELECT COUNT(*) FROM 2_entry_exit_conrol"; 
 
 
 $result=mysqli_query($conn, $query);

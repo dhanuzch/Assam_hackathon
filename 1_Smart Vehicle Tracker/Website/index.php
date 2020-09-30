@@ -290,12 +290,11 @@ body {
 </style>
 <script>
   if (<?php echo $speed; ?> > 40) {   /* Now speed limit is set to 40 */
-    document.getElementById('button').style.webkit-animation = "glowing";
+    document.getElementById('button').style.webkit-animation = "glowing 1500ms infinite";
   alert("Overspeeding");
   }
   if (<?php echo $speed; ?> <= 40) {
-      -webkit-animation: notglowing 1500ms infinite;
-  }
+    document.getElementById('button').style.webkit-animation = "notglowing 1500ms infinite";  }
 </script>
 
 <style>
