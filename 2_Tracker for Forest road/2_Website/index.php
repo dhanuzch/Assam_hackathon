@@ -17,7 +17,7 @@ $stolenquery = "SELECT * FROM 2_entryexit_stolen
 ORDER BY id DESC 
 LIMIT 0,10"; 
 
-$countquery = "SELECT COUNT(*) FROM 2_entry_exit_conrol"; 
+$countquery = "SELECT COUNT(*) FROM 2_entry_exit_control"; 
 
 
 $result=mysqli_query($conn, $query);
@@ -77,7 +77,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     
     <div class="w3-container">
       <div class="box1">
-        <img src="\Website\img\bg2.jpg" alt="Road" style="width:100%">
+        <img src="\2_Website\img\bg.jpg" alt="Road" style="width:100%">
         <?php 
         while($row=mysqli_fetch_assoc($resultcount))
         {
