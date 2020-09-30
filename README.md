@@ -6,6 +6,8 @@
 ## Project instructions and explanation document
 This contains all the details to replicate this project, explanation and detailed instructions.
 [Click here](/Assam_hack_report.pdf).
+<br>
+[Drive link](https://drive.google.com/file/d/1i1HEC_GRwBN9hoXFHEckwQVBD2L8Wx2i/view?usp=sharing).
 
 ## Project Working
 ### 1_smart_vehicle_tracker
