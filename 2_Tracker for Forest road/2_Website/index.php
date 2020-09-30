@@ -108,7 +108,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-card w3-margin w3-margin-top">
 
     <div class="w3-container w3-white">
-      <h4><b>Details of last 10 cars</b></h4>
+      <h4><b>Details of last 10 cars that entered</b></h4>
       <table class="w3-table-all w3-hoverable">
         <tr>
           <th>Reg. No.</th>
@@ -117,7 +117,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         </tr>
         <?php 
                                     
-        while($row=mysqli_fetch_assoc($resultstolen))
+        while($row=mysqli_fetch_assoc($result))
         {
             $registration_no = $row['registration_no'];
             $brand = $row['brand'];
@@ -149,7 +149,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         </tr>
         <?php 
                                     
-        while($row=mysqli_fetch_assoc($result))
+        while($row=mysqli_fetch_assoc($resultstolen))
         {
             $registration_no = $row['registration_no'];
             $brand = $row['brand'];
