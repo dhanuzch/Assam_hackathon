@@ -5,7 +5,7 @@
 
 ## Project Working
 ### 1_smart_vehicle_tracker
-![gif](Project_Images/1_website.gif)
+[Click here](Project_Images/1_website.gif)
 
 ## Project instructions and explanation document
 [Click here](https://www.google.com).
