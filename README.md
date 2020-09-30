@@ -10,7 +10,8 @@
 [Click here](https://www.google.com).
 
 ## Folder Structure
-![Folder structure 1](Project_Images/folderstruct1.png?raw=true "Folder structure 1")
 ![Folder structure 2](Project_Images/folderstruct2.png?raw=true "Folder structure 2")
+![Folder structure 1](Project_Images/folderstruct1.png?raw=true "Folder structure 1")
+
 
 
