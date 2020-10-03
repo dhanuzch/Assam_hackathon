@@ -10,7 +10,7 @@ This contains all the details to replicate this project, explanation and detaile
 [Drive link](https://drive.google.com/file/d/1i1HEC_GRwBN9hoXFHEckwQVBD2L8Wx2i/view?usp=sharing).
 
 ## Project Working
-### 1_smart_vehicle_tracker
+#### 1_smart_vehicle_tracker
 [Click here](Project_Images/1_website.gif)
 
 
